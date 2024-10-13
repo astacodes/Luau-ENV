@@ -37,3 +37,13 @@ getgenv().isreadonly = function(t)
     return getgenv().table.isfrozen(t)
 end
 
+getgenv().hookmetamethod = function(obj, method, rep) -- Will only work on Internal Executors with a working GetRawMetatable & SetReadOnly
+    local mt = getrawmetatable(obj)
+    local old = mt[method]
+    
+    setreadonly(mt, false)
+    mt[method] = rep
+    setreadonly(mt, true)
+    
+    return old
+end
