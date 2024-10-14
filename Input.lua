@@ -69,7 +69,7 @@ getgenv().mousemoverel = function(x, y)
     x = x or 0
     y = y or 0
 
-    local vpSize = _workspace.CurrentCamera.ViewportSize
+    local vpSize = workspace.CurrentCamera.ViewportSize
     local x = vpSize.X * x
     local y = vpSize.Y * y
 
