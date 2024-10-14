@@ -45,7 +45,7 @@ getgenv().islclosure = function(func)
     return debug.info(func, "s") ~= "[C]"
 end
 
-getgenv().isgetgenv()closure = function(func)
+getgenv().isexecutorclosure = function(func)
     for _, genv in getgenv() do
         if genv == func then
             return true
